@@ -15564,10 +15564,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Robot
       objectReference: {fileID: 0}
-    - target: {fileID: 6486158507880666232, guid: 0fb8c1ebf5165014f898793f19cec0b5, type: 3}
-      propertyPath: m_GravityScale
-      value: 2
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0fb8c1ebf5165014f898793f19cec0b5, type: 3}
 --- !u!1 &6486158507880666228 stripped

@@ -22,8 +22,6 @@ public class CameraMovement : MonoBehaviour
 
         _playerRigidBody = _player.GetComponent<Rigidbody2D>();
         _neutralPosition = transform.position;
-
-        Debug.Log("neutral position: " + _neutralPosition);
     }
 
     private void Update()
