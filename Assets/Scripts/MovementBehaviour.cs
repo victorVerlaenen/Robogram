@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class MovementBehaviour : MonoBehaviour
@@ -28,9 +25,10 @@ public class MovementBehaviour : MonoBehaviour
 
     private void HandleMovement()
     {
-        Vector2 movement = _desiredMovementDirection.normalized;
+        var movement = _desiredMovementDirection.normalized;
         movement *= _movementSpeed;
 
-        _rigidbody.velocity = movement;
+        var initialVelocity = _rigidbody.velocity;
+        _rigidbody.velocity = new Vector2(movement.x, initialVelocity.y);
     }
 }

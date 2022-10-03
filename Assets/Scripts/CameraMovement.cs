@@ -11,7 +11,7 @@ public class CameraMovement : MonoBehaviour
 
     private Vector3 _neutralPosition = Vector3.zero;
     private Vector3 _targetPosition = Vector3.zero;
-    private float _haltMargin = 0.5f;
+    private const float _haltMargin = 0.01f;
 
     private void Awake()
     {
@@ -38,7 +38,7 @@ public class CameraMovement : MonoBehaviour
             _targetPosition = new Vector3(_neutralPosition.x + _cameraDesiredMovement.x, _neutralPosition.y + _cameraDesiredMovement.y, _neutralPosition.z);
         }
 
-        //if (Vector2.Distance(transform.position, _targetPosition) >= _haltMargin)
+        if (Vector2.Distance(transform.position, _targetPosition) >= _haltMargin)
         {
             transform.position = Vector3.Lerp(transform.position, _targetPosition, _moveSpeed * Time.deltaTime);
         }
