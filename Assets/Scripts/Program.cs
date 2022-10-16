@@ -2,11 +2,11 @@ using UnityEngine;
 
 public class Program : MonoBehaviour
 {
-    protected BasicCharacter _player = null;
+    protected RobotCharacter _player = null;
 
     public void Initialize()
     {
-        _player = FindObjectOfType<BasicCharacter>();
+        _player = FindObjectOfType<RobotCharacter>();
         if (_player == null)
         {
             Debug.Log("Player not found!");

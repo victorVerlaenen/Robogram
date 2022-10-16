@@ -11,6 +11,13 @@ public class RobotCharacter : BasicCharacter
     private const string SECONDARY_ABILITY = "SecondaryAbility";
     [SerializeField] protected List<GameObject> _programsList = null;
 
+    private bool _canPush = false;
+    public bool CanPush
+    {
+        set { _canPush = value; }
+        get { return _canPush; }
+    }
+
     protected override void Awake()
     {
         base.Awake();
