@@ -1,18 +1,29 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class ExtendingProgram : MonoBehaviour
+public class ExtendingProgram : Program
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] GameObject _handTemplate = null;
+    private Camera _camera = null;
+
+    private void Awake()
     {
-        
+        _camera = Camera.main;
     }
 
-    // Update is called once per frame
-    void Update()
+    public override void HandleAbility()
     {
-        
+        if (_handTemplate != null)
+        {
+            Vector3 mousePos = Input.mousePosition;
+            mousePos.z = Camera.main.nearClipPlane;
+            var direction = (_camera.ScreenToWorldPoint(mousePos) - _player.transform.position).normalized;
+            var hand = Instantiate(_handTemplate, _player.transform.position, Quaternion.identity);
+
+            if(hand != null)
+            {
+                hand.transform.up = direction;
+                hand.transform.forward = Vector3.forward;
+            }
+        }
     }
 }

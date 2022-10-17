@@ -11,13 +11,5 @@ public class PushingProgram : Program
         _player.Movement.Jump();
     }
 
-    private void OnEnable()
-    {
-        _player.CanPush = true;
-    }
-
-    private void OnDisable()
-    {
-        _player.CanPush = false;
-    }
+    
 }

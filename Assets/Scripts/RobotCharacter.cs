@@ -11,7 +11,7 @@ public class RobotCharacter : BasicCharacter
     private const string SECONDARY_ABILITY = "SecondaryAbility";
     [SerializeField] protected List<GameObject> _programsList = null;
 
-    private bool _canPush = false;
+    private bool _canPush = true;
     public bool CanPush
     {
         set { _canPush = value; }
@@ -23,8 +23,24 @@ public class RobotCharacter : BasicCharacter
         base.Awake();
 
         // Testing
-        PrimaryProgram = Instantiate(_programsList.SingleOrDefault(obj => obj.name == "PushingProgram"), Vector3.zero, Quaternion.identity).GetComponent<Program>();
-        PrimaryProgram.Initialize();
+        var pushing = _programsList.SingleOrDefault(obj => obj.name == "PushingProgram");
+        if (pushing != null)
+        {
+            PrimaryProgram = Instantiate(pushing, Vector3.zero, Quaternion.identity).GetComponent<Program>();
+            if (PrimaryProgram != null)
+            {
+                PrimaryProgram.Initialize();
+            }
+        }
+        var extending = _programsList.SingleOrDefault(obj => obj.name == "ExtendingProgram");
+        if (extending != null)
+        {
+            SecondaryProgram = Instantiate(extending, Vector3.zero, Quaternion.identity).GetComponent<Program>();
+            if (SecondaryProgram != null)
+            {
+                SecondaryProgram.Initialize();
+            }
+        }
     }
 
     private void Update()
