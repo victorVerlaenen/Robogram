@@ -10,6 +10,12 @@ public class RobotCharacter : BasicCharacter
     private const string PRIMARY_ABILITY = "PrimaryAbility";
     private const string SECONDARY_ABILITY = "SecondaryAbility";
     [SerializeField] protected List<GameObject> _programsList = null;
+    [SerializeField] private Transform _socket = null;
+
+    public Transform Socket
+    {
+        get { return _socket; }
+    }
 
     private bool _canPush = true;
     public bool CanPush

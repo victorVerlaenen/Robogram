@@ -1,9 +1,11 @@
 using UnityEngine;
+using UnityEngine.XR;
 
 public class ExtendingProgram : Program
 {
     [SerializeField] GameObject _handTemplate = null;
     private Camera _camera = null;
+    private GameObject _hand = null;
 
     private void Awake()
     {
@@ -14,16 +16,28 @@ public class ExtendingProgram : Program
     {
         if (_handTemplate != null)
         {
-            Vector3 mousePos = Input.mousePosition;
-            mousePos.z = Camera.main.nearClipPlane;
-            var direction = (_camera.ScreenToWorldPoint(mousePos) - _player.transform.position).normalized;
-            var hand = Instantiate(_handTemplate, _player.transform.position, Quaternion.identity);
-
-            if(hand != null)
+            if (_hand == null)
             {
-                hand.transform.up = direction;
-                hand.transform.forward = Vector3.forward;
+                _hand = Instantiate(_handTemplate, _player.Socket.position, Quaternion.identity);
+
+                if (_hand != null)
+                {
+                    LookAtMouse(_hand);
+                }
+            }
+            else
+            {
+                Destroy(_hand);
             }
         }
+    }
+
+    private void LookAtMouse(GameObject obj)
+    {
+        Vector3 diff = _camera.ScreenToWorldPoint(Input.mousePosition) - _player.Socket.position;
+        diff.Normalize();
+
+        float rot_z = Mathf.Atan2(diff.y, diff.x) * Mathf.Rad2Deg;
+        obj.transform.rotation = Quaternion.Euler(0f, 0f, rot_z - 90);
     }
 }

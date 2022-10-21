@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MovingPlatform : MonoBehaviour
+public class MovingPlatform : ActivatableObject
 {
     enum MovementDirection
     {
@@ -16,13 +16,6 @@ public class MovingPlatform : MonoBehaviour
     [SerializeField] private Transform _endPosition = null;
 
     private float _moveSpeed = 1.0f;
-
-    private bool _isActive = false;
-    public bool IsActive
-    {
-        set { _isActive = value; }
-        get { return _isActive; }
-    }
 
     private void Update()
     {
