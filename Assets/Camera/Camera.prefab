@@ -97,6 +97,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9be3c9c925c56c64b92942566c3a3166, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _moveSpeed: 1
-  _cameraRadius: 2.5
-  _player: {fileID: 0}
+  _moveSpeed: 3
+  _cameraRadius: 0.5

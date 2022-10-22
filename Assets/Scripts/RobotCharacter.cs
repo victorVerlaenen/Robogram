@@ -17,34 +17,52 @@ public class RobotCharacter : BasicCharacter
         get { return _socket; }
     }
 
-    private bool _canPush = true;
+    private bool _hardened = false;
+    public bool Hardened
+    {
+        get { return _hardened; }
+        set { _hardened = value; }
+    }
+
+    private bool _canInteract = false;
+    public bool CanInteract
+    {
+        get { return _canInteract; }
+        set { _canInteract = value; }
+    }
+
+    private bool _interacted = false;
+    public bool Interacted
+    {
+        get { return _interacted; }
+        set { _interacted = value; }
+    }
+
+    private bool _canPush = false;
     public bool CanPush
     {
         set { _canPush = value; }
         get { return _canPush; }
     }
 
-    protected override void Awake()
+    public void SetPrograms(string primaryProgram, string secondayProgram)
     {
-        base.Awake();
-
-        // Testing
-        var pushing = _programsList.SingleOrDefault(obj => obj.name == "PushingProgram");
-        if (pushing != null)
+        var secondary = _programsList.SingleOrDefault(obj => obj.name == secondayProgram);
+        if (secondary != null)
         {
-            PrimaryProgram = Instantiate(pushing, Vector3.zero, Quaternion.identity).GetComponent<Program>();
-            if (PrimaryProgram != null)
-            {
-                PrimaryProgram.Initialize();
-            }
-        }
-        var extending = _programsList.SingleOrDefault(obj => obj.name == "ExtendingProgram");
-        if (extending != null)
-        {
-            SecondaryProgram = Instantiate(extending, Vector3.zero, Quaternion.identity).GetComponent<Program>();
+            SecondaryProgram = Instantiate(secondary, Vector3.zero, Quaternion.identity).GetComponent<Program>();
             if (SecondaryProgram != null)
             {
                 SecondaryProgram.Initialize();
+            }
+        }
+        var primary = _programsList.SingleOrDefault(obj => obj.name == primaryProgram);
+        if (primary != null)
+        {
+            PrimaryProgram = Instantiate(primary, Vector3.zero, Quaternion.identity).GetComponent<Program>();
+            if (PrimaryProgram != null)
+            {
+                PrimaryProgram.Initialize();
             }
         }
     }

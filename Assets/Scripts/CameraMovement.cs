@@ -6,7 +6,10 @@ public class CameraMovement : MonoBehaviour
 {
     [SerializeField] private float _moveSpeed = 1.0f;
     [SerializeField] private float _cameraRadius = 2.5f;
-    [SerializeField] private GameObject _player;
+
+    const string PLAYER = "Robot";
+    private GameObject _player;
+
     private Rigidbody2D _playerRigidBody;
 
     private Vector3 _neutralPosition = Vector3.zero;
@@ -15,6 +18,7 @@ public class CameraMovement : MonoBehaviour
 
     private void Awake()
     {
+        _player = GameObject.Find(PLAYER);
         if (_player == null)
         { 
             return;
@@ -26,6 +30,11 @@ public class CameraMovement : MonoBehaviour
 
     private void Update()
     {
+        if(_playerRigidBody == null )
+        {
+            return;
+        }
+
         if (_playerRigidBody.velocity.magnitude < _haltMargin)
         {
             _targetPosition = _neutralPosition;

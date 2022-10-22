@@ -11,9 +11,11 @@ public class PushingProgram : Program
 
     public override void HandleAbility()
     {
-        // Debug
-        _player.Movement.Jump();
+        
     }
 
-    
+    private void OnDestroy()
+    {
+        _player.CanPush = false;
+    }
 }

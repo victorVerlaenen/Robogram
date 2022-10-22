@@ -34,6 +34,7 @@ public class Hand : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+
         _forward = false;
         _rigidBody.velocity = Vector2.zero;
     }

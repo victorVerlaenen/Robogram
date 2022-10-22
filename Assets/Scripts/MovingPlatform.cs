@@ -5,14 +5,6 @@ using UnityEngine;
 
 public class MovingPlatform : ActivatableObject
 {
-    enum MovementDirection
-    {
-        Up,
-        Down,
-        Left,
-        Right
-    }
-    [SerializeField] private MovementDirection _movementDirection = MovementDirection.Up;
     [SerializeField] private Transform _endPosition = null;
 
     private float _moveSpeed = 1.0f;
