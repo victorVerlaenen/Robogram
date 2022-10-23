@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Button : MonoBehaviour
+public class ButtonBehaviour : MonoBehaviour
 {
     [SerializeField] private GameObject _connectedObject = null;
     private ActivatableObject _activableObject = null;

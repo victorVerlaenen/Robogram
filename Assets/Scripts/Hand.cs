@@ -25,18 +25,21 @@ public class Hand : MonoBehaviour
             {
                 _rigidBody.velocity = transform.up * _moveSpeed;
             }
-            if(_backwards == true)
+            if (_backwards == true)
             {
                 _rigidBody.velocity = transform.up * -_moveSpeed;
             }
         }
     }
 
+    const string ENEMY_LAYER = "Enemy";
     private void OnTriggerEnter2D(Collider2D collision)
     {
-
-        _forward = false;
-        _rigidBody.velocity = Vector2.zero;
+        if (collision.gameObject.layer != LayerMask.NameToLayer(ENEMY_LAYER))
+        {
+            _forward = false;
+            _rigidBody.velocity = Vector2.zero;
+        }
     }
 
 }

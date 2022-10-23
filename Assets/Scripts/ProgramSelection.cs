@@ -7,10 +7,14 @@ using static UnityEngine.UIElements.UxmlAttributeDescription;
 public class ProgramSelection : MonoBehaviour
 {
     private RobotCharacter _player = null;
-
     private string _primarySelected = string.Empty;
-
     private SelectionActivation _selectionMenu = null;
+
+    private AccesPoint _currentAccesPoint = null;
+    public AccesPoint CurrentAccesPoint
+    {
+        set { _currentAccesPoint = value; }
+    }
 
     private void Start()
     {
@@ -34,6 +38,7 @@ public class ProgramSelection : MonoBehaviour
             _player.SetPrograms(_primarySelected, program);
             _primarySelected = string.Empty;
             _selectionMenu.SetActive(false);
+            _currentAccesPoint.Deactivate();
         }
     }
 }

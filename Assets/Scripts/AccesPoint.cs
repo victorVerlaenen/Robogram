@@ -15,16 +15,27 @@ public class AccesPoint : MonoBehaviour
     private bool _activated = false;
 
     private SelectionActivation _selectionMenu = null;
+    private BoxCollider2D _collider = null;
+    private ProgramSelection _programSelection = null;
+    private AccesPoint _thisAccesPoint = null;
 
     [SerializeField] SpriteRenderer _screen = null;
 
     private void Start()
     {
         _selectionMenu = FindObjectOfType<SelectionActivation>();
+        _collider = GetComponent<BoxCollider2D>();
+        _programSelection = FindObjectOfType<ProgramSelection>();
+        _thisAccesPoint = GetComponent<AccesPoint>();
     }
 
     private void Update()
     {
+        if (_thisAccesPoint == null)
+        {
+            return;
+        }
+
         if (_canChangePrograms == true
             && _used == false)
         {
@@ -32,6 +43,7 @@ public class AccesPoint : MonoBehaviour
             {
                 _selectionMenu.SetActive(true);
                 DestroyCurrentPrograms();
+                _programSelection.CurrentAccesPoint = _thisAccesPoint;
                 _activated = true;
             }
         }
@@ -65,19 +77,26 @@ public class AccesPoint : MonoBehaviour
         {
             return;
         }
+
         if (_activated == true)
         {
-            _used = true;
-            if(_screen != null)
-            {
-                _screen.color = Color.black;
-            }
-
             if (collision.gameObject.tag == PLAYER_TAG)
             {
-                _canChangePrograms = false;
-                _selectionMenu.SetActive(false);
+                Deactivate();   
             }
         }
+    }
+
+    public void Deactivate()
+    {
+        _used = true;
+        if (_screen != null && _collider != null)
+        {
+            _screen.color = Color.black;
+            _collider.enabled = false;
+        }
+
+        _canChangePrograms = false;
+        _selectionMenu.SetActive(false);
     }
 }
