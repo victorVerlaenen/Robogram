@@ -280,9 +280,9 @@ MonoBehaviour:
   _staticLevelLayer:
     serializedVersion: 2
     m_Bits: 256
-  _DynamicLevelLayer:
+  _dynamicLevelLayer:
     serializedVersion: 2
-    m_Bits: 512
+    m_Bits: 0
 --- !u!1 &6472145228041319761
 GameObject:
   m_ObjectHideFlags: 0
@@ -404,7 +404,7 @@ MonoBehaviour:
   _staticLevelLayer:
     serializedVersion: 2
     m_Bits: 256
-  _DynamicLevelLayer:
+  _dynamicLevelLayer:
     serializedVersion: 2
     m_Bits: 512
 --- !u!1 &7004078541215358806
