@@ -1,4 +1,5 @@
 
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -69,6 +70,21 @@ public class RobotCharacter : BasicCharacter
     private void Update()
     {
         HandleMovementInput();
+        FlipPlayerIfNeeded();
+    }
+
+    private void FlipPlayerIfNeeded()
+    {
+        float inputMovement = Input.GetAxis(MOVEMENT);
+
+        if(inputMovement > 0)
+        {
+            transform.localScale = new Vector3(1, 1, 1);
+        }
+        if(inputMovement < 0)
+        {
+            transform.localScale = new Vector3(-1, 1, 1);
+        }
     }
 
     private void LateUpdate()

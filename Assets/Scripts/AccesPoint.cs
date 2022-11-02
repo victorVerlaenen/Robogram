@@ -14,7 +14,7 @@ public class AccesPoint : MonoBehaviour
     private ProgramSelection _programSelection = null;
     private AccesPoint _thisAccesPoint = null;
 
-    [SerializeField] SpriteRenderer _screen = null;
+    private Animator _animator = null;
 
     private void Start()
     {
@@ -22,6 +22,7 @@ public class AccesPoint : MonoBehaviour
         _collider = GetComponent<BoxCollider2D>();
         _programSelection = FindObjectOfType<ProgramSelection>();
         _thisAccesPoint = GetComponent<AccesPoint>();
+        _animator = GetComponentInChildren<Animator>();
     }
 
     private void Update()
@@ -85,9 +86,10 @@ public class AccesPoint : MonoBehaviour
     public void Deactivate()
     {
         _used = true;
-        if (_screen != null && _collider != null)
+        if (_animator != null && _collider != null)
         {
-            _screen.color = Color.black;
+            _animator.enabled = false;
+
             _collider.enabled = false;
         }
 
