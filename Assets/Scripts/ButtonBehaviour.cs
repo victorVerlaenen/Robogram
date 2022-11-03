@@ -7,6 +7,7 @@ public class ButtonBehaviour : MonoBehaviour
     private ActivatableObject _activableObject = null;
     private RobotCharacter _player = null;
     const string PLAYER_TAG = "Player";
+    bool _canBeClicked = false;
 
     private void Awake()
     {
@@ -18,13 +19,12 @@ public class ButtonBehaviour : MonoBehaviour
         _activableObject = _connectedObject.GetComponent<ActivatableObject>();
     }
 
-    private void Update()
-    {
-       
-    }
-
     private void LateUpdate()
     {
+        if(_canBeClicked == false)
+        {
+            return;
+        }
         if (_player == null)
         {
             Debug.Log("Button: _player could not be found");
@@ -42,14 +42,6 @@ public class ButtonBehaviour : MonoBehaviour
         }
     }
 
-    private void OnDrawGizmos()
-    {
-        if (_activableObject.IsActive == true)
-        {
-            Gizmos.DrawSphere(_activableObject.transform.position, .5f);
-        }
-    }
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (_player == null)
@@ -59,6 +51,7 @@ public class ButtonBehaviour : MonoBehaviour
         if (collision.gameObject.tag == PLAYER_TAG)
         {
             _player.CanInteract = true;
+            _canBeClicked = true;
         }
     }
 
@@ -71,6 +64,7 @@ public class ButtonBehaviour : MonoBehaviour
         if (collision.gameObject.tag == PLAYER_TAG)
         {
             _player.CanInteract = false;
+            _canBeClicked = false;
         }
     }
 }

@@ -25,8 +25,11 @@ public class MovingPlatform : ActivatableObject
     {
         if (_platform != null)
         {
-            Debug.Log("MovingPlatform: _platform could not be found");
             _platform.transform.position = Vector3.Lerp(_platform.transform.position, _endPosition.position, _moveSpeed * Time.deltaTime);
+        }
+        else
+        {
+            Debug.Log("MovingPlatform: _platform could not be found");
         }
     }
 }

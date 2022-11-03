@@ -5,7 +5,13 @@ using UnityEngine.SceneManagement;
 public class Restart : MonoBehaviour
 {
     const string RESTART = "Restart";
-    const string GAME_SCENE = "GameScene";
+    string GAME_SCENE;
+
+    private void Awake()
+    {
+        GAME_SCENE = SceneManager.GetActiveScene().name;
+    }
+
     private void Update()
     {
         if(Input.GetButtonDown(RESTART))

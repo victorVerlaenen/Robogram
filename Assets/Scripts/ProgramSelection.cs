@@ -29,6 +29,7 @@ public class ProgramSelection : MonoBehaviour
         if (_primarySelected == string.Empty)
         {
             _primarySelected = program;
+            _player.SetPrograms(_primarySelected, null);
         }
         else
         {
