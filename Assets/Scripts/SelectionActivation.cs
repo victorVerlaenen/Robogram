@@ -9,12 +9,14 @@ public class SelectionActivation : MonoBehaviour
         foreach (Transform child in transform)
         {
             var button = child.gameObject.GetComponent<Button>();
-            if (button != null)
+            var UIButton = child.gameObject.GetComponent<UIButton>();
+            if (button != null && UIButton != null)
             {
                 if (value)
                 {
                     child.gameObject.SetActive(value);
                     button.interactable = true;
+                    UIButton.DisableControlDisplays();
                 }
                 else
                 {

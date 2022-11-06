@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 
 public class AccesPoint : MonoBehaviour
 {
@@ -16,6 +17,8 @@ public class AccesPoint : MonoBehaviour
 
     private Animator _animator = null;
 
+    private Light2D _light = null;
+
     private void Start()
     {
         _selectionMenu = FindObjectOfType<SelectionActivation>();
@@ -23,6 +26,11 @@ public class AccesPoint : MonoBehaviour
         _programSelection = FindObjectOfType<ProgramSelection>();
         _thisAccesPoint = GetComponent<AccesPoint>();
         _animator = GetComponentInChildren<Animator>();
+        _light = GetComponentInChildren<Light2D>();
+        if(_light != null)
+        {
+            _light.enabled = false;
+        }
     }
 
     private void Update()
@@ -56,9 +64,19 @@ public class AccesPoint : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if (collision.gameObject.tag != PLAYER_TAG)
+        {
+            return;
+        }
+
         if (_used == true)
         {
             return;
+        }
+
+        if(_light != null)
+        {
+            _light.enabled = true;
         }
 
         if (collision.gameObject.tag == PLAYER_TAG)
@@ -69,9 +87,19 @@ public class AccesPoint : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
+        if (collision.gameObject.tag != PLAYER_TAG)
+        {
+            return;
+        }
+
         if (_used == true)
         {
             return;
+        }
+
+        if (_light != null)
+        {
+            _light.enabled = false;
         }
 
         if (_activated == true)
@@ -91,6 +119,10 @@ public class AccesPoint : MonoBehaviour
             _animator.enabled = false;
 
             _collider.enabled = false;
+        }
+        if (_light != null)
+        {
+            _light.enabled = false;
         }
 
         _canChangePrograms = false;
