@@ -33,7 +33,7 @@ public class ProgramSelection : MonoBehaviour
         }
         else
         {
-            _player.SetPrograms(_primarySelected, program);
+            _player.SetPrograms(null, program);
             _primarySelected = string.Empty;
             _selectionMenu.SetActive(false);
             _currentAccesPoint.Deactivate();
