@@ -48,6 +48,7 @@ public class AccesPoint : MonoBehaviour
                 _selectionMenu.SetActive(true);
                 DestroyCurrentPrograms();
                 _programSelection.CurrentAccesPoint = _thisAccesPoint;
+                _programSelection.ResetSelection();
                 _activated = true;
             }
         }

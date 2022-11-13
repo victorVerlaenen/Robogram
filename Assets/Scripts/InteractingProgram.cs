@@ -1,7 +1,7 @@
 using UnityEngine;
 public class InteractingProgram : Program
 {
-    public override void HandleAbility()
+    public override void HandleAbilityDown()
     {
         if (_player.CanInteract == true)
         {

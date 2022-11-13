@@ -17,6 +17,7 @@ public class Restart : MonoBehaviour
         if(Input.GetButtonDown(RESTART))
         {
             SceneManager.LoadScene(GAME_SCENE);
+            Time.timeScale = 1.0f;
         }
     }
 }

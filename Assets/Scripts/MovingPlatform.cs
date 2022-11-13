@@ -4,6 +4,8 @@ using UnityEngine;
 public class MovingPlatform : ActivatableObject
 {
     [SerializeField] private Transform _endPosition = null;
+    [SerializeField] private LayerMask _blockingLayer;
+    [SerializeField] private float _overlapRadius = 0.5f;
     private GameObject _platform = null;
 
     private float _moveSpeed = 1.0f;
@@ -25,11 +27,24 @@ public class MovingPlatform : ActivatableObject
     {
         if (_platform != null)
         {
-            _platform.transform.position = Vector3.Lerp(_platform.transform.position, _endPosition.position, _moveSpeed * Time.deltaTime);
+            Collider2D[] hitObjects = Physics2D.OverlapCircleAll(transform.position, _overlapRadius, _blockingLayer);
+            if (hitObjects.Length <= 1)
+            {
+                _platform.transform.position = Vector3.Lerp(_platform.transform.position, _endPosition.position, _moveSpeed * Time.deltaTime);
+                Debug.Log("Move");
+            }
+            else
+                IsActive = false;
+
         }
         else
         {
             Debug.Log("MovingPlatform: _platform could not be found");
         }
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.DrawWireSphere(transform.position, _overlapRadius);
     }
 }

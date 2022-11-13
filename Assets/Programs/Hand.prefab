@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8710144597453170272}
   - component: {fileID: 3759763022306872583}
-  m_Layer: 7
+  m_Layer: 11
   m_Name: Index
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8475432479959731054}
   - component: {fileID: 8424189796532004103}
-  m_Layer: 7
+  m_Layer: 11
   m_Name: Middle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -178,7 +178,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2878463936308360815}
   - component: {fileID: 4669023910130700378}
-  m_Layer: 7
+  m_Layer: 11
   m_Name: Pinkie
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -265,7 +265,7 @@ GameObject:
   - component: {fileID: 6146129784394211158}
   - component: {fileID: 8828676116127909598}
   - component: {fileID: 6001583769061963671}
-  m_Layer: 7
+  m_Layer: 11
   m_Name: Hand
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -456,7 +456,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6913170148490342395}
   - component: {fileID: 1091795490701239414}
-  m_Layer: 7
+  m_Layer: 11
   m_Name: Ring
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -540,7 +540,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6882584781223896026}
   - component: {fileID: 373949394727843197}
-  m_Layer: 7
+  m_Layer: 11
   m_Name: Thumb
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -623,7 +623,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5820981321744239130}
-  m_Layer: 7
+  m_Layer: 11
   m_Name: Visuals
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -656,7 +656,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4102446844563061203}
-  m_Layer: 7
+  m_Layer: 11
   m_Name: Main
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -695,7 +695,7 @@ GameObject:
   - component: {fileID: 6601132729728715283}
   - component: {fileID: 3048403150947104762}
   - component: {fileID: 4937302916396476294}
-  m_Layer: 7
+  m_Layer: 11
   m_Name: Counter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -866,7 +866,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4191222807959291061}
   - component: {fileID: 243688755395880865}
-  m_Layer: 7
+  m_Layer: 11
   m_Name: Palm
   m_TagString: Untagged
   m_Icon: {fileID: 0}

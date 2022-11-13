@@ -1,4 +1,4 @@
-using UnityEditor;
+
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
 
@@ -11,6 +11,8 @@ public class ButtonBehaviour : MonoBehaviour
     private Light2D _light = null; 
     const string PLAYER_TAG = "Player";
     bool _canBeClicked = false;
+    [SerializeField] ParticleSystem _partical = null;
+    [SerializeField] Transform _socket = null;
 
     private void Awake()
     {
@@ -47,6 +49,7 @@ public class ButtonBehaviour : MonoBehaviour
         {
             _activableObject.IsActive = true;
             _player.Interacted = false;
+            SpawnParticle();
             if(_levelEnding == true)
             {
                 var programmer = FindObjectOfType<Programmer>();
@@ -55,6 +58,15 @@ public class ButtonBehaviour : MonoBehaviour
                     programmer.EndLevel();
                 }
             }
+        }
+    }
+
+    private void SpawnParticle()
+    {
+        if(_partical != null)
+        {
+            var particle = Instantiate(_partical, _socket.position, Quaternion.identity);
+            particle.transform.SetParent(transform);
         }
     }
 

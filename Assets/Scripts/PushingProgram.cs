@@ -7,7 +7,7 @@ public class PushingProgram : Program
         _player.CanPush = true;
     }
 
-    public override void HandleAbility()
+    public override void HandleAbilityDown()
     {
         
     }

@@ -96,12 +96,28 @@ public class RobotCharacter : BasicCharacter
     {
         if (PrimaryProgram != null && Input.GetButtonDown(PRIMARY_ABILITY))
         {
-            PrimaryProgram.HandleAbility();
+            PrimaryProgram.HandleAbilityDown();
+        }
+        if (PrimaryProgram != null && Input.GetButtonUp(PRIMARY_ABILITY))
+        {
+            PrimaryProgram.HandleAbilityUp();
+        }
+        if (PrimaryProgram != null && Input.GetButton(PRIMARY_ABILITY))
+        {
+            PrimaryProgram.HandleAbilityPressed();
         }
 
         if (SecondaryProgram != null && Input.GetButtonDown(SECONDARY_ABILITY))
         {
-            SecondaryProgram.HandleAbility();
+            SecondaryProgram.HandleAbilityDown();
+        }
+        if (SecondaryProgram != null && Input.GetButtonUp(SECONDARY_ABILITY))
+        {
+            SecondaryProgram.HandleAbilityUp();
+        }
+        if (SecondaryProgram != null && Input.GetButton(SECONDARY_ABILITY))
+        {
+            SecondaryProgram.HandleAbilityPressed();
         }
     }
 

@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1382575916163644096}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: Visuals
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -127,7 +127,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5904656822253885056}
   - component: {fileID: 1085143598276317416}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: Light 2D
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -825,7 +825,7 @@ GameObject:
   - component: {fileID: 2525830990636856744}
   - component: {fileID: 8815876987587844513}
   - component: {fileID: 7232695463877539623}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: AccesPoint
   m_TagString: Friendly
   m_Icon: {fileID: 0}

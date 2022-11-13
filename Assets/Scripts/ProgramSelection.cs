@@ -21,7 +21,7 @@ public class ProgramSelection : MonoBehaviour
 
     public void SetProgram(string program)
     {
-        if(_player == null)
+        if (_player == null)
         {
             return;
         }
@@ -38,5 +38,17 @@ public class ProgramSelection : MonoBehaviour
             _selectionMenu.SetActive(false);
             _currentAccesPoint.Deactivate();
         }
+    }
+
+    public void ResetSelection()
+    {
+        _primarySelected = string.Empty;
+    }
+
+    public void StopSelection()
+    {
+        _primarySelected = string.Empty;
+        _selectionMenu.SetActive(false);
+        _currentAccesPoint.Deactivate();
     }
 }

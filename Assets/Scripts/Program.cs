@@ -13,8 +13,18 @@ public class Program : MonoBehaviour
         }
     }
 
-    public virtual void HandleAbility()
+    public virtual void HandleAbilityDown()
     {
         
+    }
+
+    public virtual void HandleAbilityUp()
+    {
+
+    }
+
+    public virtual void HandleAbilityPressed()
+    {
+
     }
 }
